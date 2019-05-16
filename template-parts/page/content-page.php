@@ -10,6 +10,7 @@
  * @version 1.0
  */
 
+$entity = get_query_var('entity');
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -20,7 +21,24 @@
 	</header>
 	<div class="page-content">
 		<?php the_content();?>
+		<p><?php the_field('address')?></p>
+		<p><?php the_field('event_date')?></p>
 	</div>
+	<div class="acf_form_content display-none">
+		<button class="danger-btn toggle-edit-<?=$entity?>">x</button>
+		<?php acf_form([
+			'post_title'	=> true,
+			'post_content'	=> true,
+			'new_post'		=> array(
+				'post_type'		=> $entity . 's',
+				'post_status'	=> 'publish'
+			),
+			'return'		=> home_url('my-' . $entity . 's'),
+
+		]); ?>
+	</div>
+
+
 	<?php
 		wp_link_pages(
 			array(
@@ -30,12 +48,8 @@
 		);
 		?>
 	<div class="btn-container org">
-		<button data-id="<?= get_the_ID()?>" class="edit-event">Edit</button>
-		<button data-id="<?= get_the_ID()?>" class="delete-event danger-btn">Delete</button>
-	</div>
-	<div class="btn-container display-none secondary">
-		<button data-id="<?= get_the_ID()?>" class="update-event">Update</button>
-		<button data-id="<?= get_the_ID()?>" class="cancel-event neutral-btn">Cancel</button>
+		<button data-id="<?= get_the_ID()?>" class="edit-<?=$entity?>">Edit</button>
+		<button data-id="<?= get_the_ID()?>" class="delete-<?=$entity?> danger-btn">Delete</button>
 	</div>
 </article>
 <hr>

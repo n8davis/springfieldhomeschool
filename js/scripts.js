@@ -3,3 +3,4 @@ import Event from './modules/Event';
 import Vendor from './modules/Vendor';
 
 var event = new Event();
+var vendor = new Vendor();
