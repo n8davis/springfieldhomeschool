@@ -1,0 +1,24 @@
+.danger-btn {
+	background-color:#DE3618;
+	border-color:#DE3618;
+}
+.danger-btn:hover {
+	background-color:#FEAD9A !important;
+	border-color:#FEAD9A;
+}
+.display-none{
+	display:none;
+}
+.edit-textarea{
+	margin:1em 0;
+}
+.login h1 a {
+	background-image: url('../images/logo.png');
+}
+.neutral-btn {
+	background-color:#919EAB;
+	border-color:#919EAB;
+}
+.text-center{
+	text-align:center;
+}
